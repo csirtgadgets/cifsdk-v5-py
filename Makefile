@@ -1,5 +1,5 @@
 NAME=cifsdk
-.PHONY: test deploy clean all sdist
+.PHONY: test deploy clean all sdist dist
 
 all: clean test sdist
 
@@ -10,7 +10,9 @@ target:
 test:
 	@python setup.py test
 
-sdist:
+dist: sdist
+
+sdist: clean
 	@python setup.py sdist
 
 deploy: clean test sdist

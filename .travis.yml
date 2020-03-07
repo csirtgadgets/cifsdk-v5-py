@@ -1,36 +1,29 @@
 language: python
 sudo: required
-
 cache:
 - pip
-
 python:
-  - 3.6
-  - 3.7
-  - 3.8
-
+- 3.6
+- 3.7
+- 3.8
 before_install:
-  - sudo apt-get install libsnappy-dev
-
+- sudo apt-get install libsnappy-dev
 install:
-  - pip install -r dev_requirements.txt
-  - python setup.py develop
-
+- pip install -r dev_requirements.txt
+- python setup.py develop
 script:
-  - make test
-  - make dist
-
+- make test
+- make dist
 notifications:
   email:
     on_success: never
     on_failure: never
-
 deploy:
   provider: pypi
-  user: wesyoung
-  password:
-    secure: Mqeuee+rEakkPjPwf2qpapdy9PFDSddQiUFg0lrQu8yVsZrbKto3PLZrGjt40ZbUrtf9Y1ZppZkfZMktNfhUoIi8WaKh/q/fwh2yl2piveuzCQ04NFYFDJGDs/Q+3De3Es4lDcPOkTcRokI+2Okq0pfes+4uIYUqfRw5D5+NZWY059gTABRwJzlKHayg1VplfopSinF2J9tUzN+Laf2E9pMnQyCXwEcf9bwaUFyaSjHC1drwsSHZc/i0felYyD6ppMBAURz1YbfW0Tw9kK5Zod4FJMjXiq/PQJGZPh87MHGwWr4B+H43kYnqlK3B9JqeaRtT4pDRNNUoAgbVmNqklku6AFwUEKLl8XbPjSxJnvPWMW3xE5TCjHLbpySj4yro+TrqXRIm9Ttuva8yOcx+nW4hkkn/8Jv+EWBCy4dw8EQ3DifsfAKrmDNKLef3f9LprVUbQDc1n6mCiQ13qJ549iSCbRTMvO9eUYqY8C4fScY8AZ7mJc8Ep3eUVUg6FsahxiiFLooiAokOTfZYopFBycSsB8OSi05fZdz8zmDJm9FQ3eIXRE4xj827NuWLXWOfXkQyp+quYhij70RG/6ax7OkrpKa24ePBRCV/Weh3PXqtB3HkDX5tjUDs3pvWSTIeSp4k8aod90/QSVPLO7dXXYo+iRe9Lyqn/OZKZ6TkrbI=
+  user: __token__
   on:
     branch: master
     tags: true
     condition: $TRAVIS_PYTHON_VERSION = "3.7"
+  password:
+    secure: ttmsXCnfWmYWjYS4ERqsODvvvldBhCI/qkn6iGjaOsOXA/bswucJ9XA3qwkJbefsgkk2I7lm/8bSF8f/8lcY43qGddlLBXQRhmNUEyQyt5bNbvT92TYSrlLERGTAYG9HGizoXuo7+6EVszHApm6mtQxMOKOLQtqbUhqBUxXAAEEjKI5uBq+BZnV636e1vefdsZh9xk5kFNNHM1tboEYYMknMjsTdvrQU6VjIf2icrN0xi8O2bzfEtysU8h1IYsnOUC/eP6YGe9Uvq3FIR7T5aHDAgED50xGAPGf1YZzdhYrffhVAq+exwF4a+qjBCrUYF1ZUAjaURUPtWqmfqzdJTBYd/zaWFD/+7YjiXAaRNDLqI/OygK2C/C9jeWup9WYMdk8PqY5q1oCMBBMqwaDARfD8Db4dXrrrqjd8aoInnslWlLhY9Wj/Hi5GVV0w20/x4PExr5LVH2Esh3i5ZdufB+bgiUeqpvbYBFXpHkpXL3hZKuDrNXffn0PzdNA4qGjeJpEC4hkkmHtabqshy9CHxeF10WCZ5P9T3Vuhn/G74JdwDr2e+/dTrD6xQbZBXB7/x7hfCJGzK1Qme0GlsC4wTnZIR3UCENwiuZTanIS9R5Z/uXM2V3gjbig4irNfEAW+UKIZyimDy7x7zn+/mR+dlpmfGpqFNk07kxqFvKZ5qhY=

@@ -10,7 +10,7 @@ python:
   - 3.8
 
 before_install:
-  - sudo apt-get install python3-snappy libsnappy-dev
+  - sudo apt-get install libsnappy-dev
 
 install:
   - pip install -r dev_requirements.txt

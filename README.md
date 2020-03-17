@@ -4,7 +4,7 @@
 # this requires python3.6 or higher..
 
 $ apt-get intstall -y libsnappy-dev  # brew install snappy
-$ pip install 'cifsdk>=5.0b1,<6.0'
+$ pip3 install geoip2 'cifsdk>=5.0b1,<6.0'
 $ export CIF_REMOTE=http://localhost:5000
 
 $ cif --itype url --tags phishing

@@ -1,8 +1,10 @@
 # Getting Started
 ## CommandLine
 ```bash
-$ apt-get libsnappy-dev  # brew install snappy
-$ pip install 'cifsdk>=5.0b1,<6.0'
+# this requires python3.6 or higher..
+
+$ apt-get intstall -y libsnappy-dev  # brew install snappy
+$ pip3 install geoip2 'cifsdk>=5.0b1,<6.0'
 $ export CIF_REMOTE=http://localhost:5000
 
 $ cif --itype url --tags phishing
@@ -33,6 +35,8 @@ If you've never worked on a GitHub project, [this is a good piece](https://guide
 
 * [How To Contribute](contributing.md)  
 * [Project Page](http://csirtgadgets.com/collective-intelligence-framework/)
+
+[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YZPQXDLNYZZ3W)
 
 # COPYRIGHT AND LICENSE
 

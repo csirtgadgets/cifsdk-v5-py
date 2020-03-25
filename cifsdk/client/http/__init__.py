@@ -16,13 +16,13 @@ class HTTP(Client, Base):
 
     def indicators_search(self, filters):
         if isinstance(filters, list):
-            return self._post('indicators/bulk', filters, 200)
+            return self._post('indicators', filters, 200)
 
         data = self._get('indicators', params=filters)
         return data
 
     def indicators_search_bulk(self, data):
-        return self._post('indicators/bulk', data, 200)
+        return self._post('indicators', data, 200)
 
     def indicators_create(self, data):
         if isinstance(data, Indicator):

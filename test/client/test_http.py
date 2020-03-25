@@ -21,7 +21,7 @@ def test_http_search(client):
     rv = client.indicators_search({})
     assert rv == []
 
-    responses.add(responses.POST, 'http://localhost/indicators/bulk',
+    responses.add(responses.POST, 'http://localhost/indicators',
                   json=[], status=200, headers={'Content-Length': '2'})
 
     rv = client.indicators_search([])

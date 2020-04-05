@@ -35,10 +35,10 @@ jobs:
     - name: Test with pytest
       run: |
         make test
-        make dist
+        python setup.py sdist
     
     - name: Publish distribution 📦 to PyPI
-      if: startsWith(github.event.ref, 'refs/tags') && ${{ matrix.python-version }} == 3.8
+      if: startsWith(github.event.ref, 'refs/tags') && ${{ matrix.python-version }} == "_3_8"
       uses: pypa/gh-action-pypi-publish@master
       with:
         password: ${{ secrets.pypi_token }}

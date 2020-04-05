@@ -37,7 +37,7 @@ jobs:
         make test
         python setup.py sdist
         echo ${{ matrix.python-version }}
-        echo github.event.ref
+        echo ${{ github.event.ref }}
     
 #     - name: Publish distribution 📦 to PyPI
 #       if: startsWith(github.event.ref, 'refs/tags') && ${{ matrix.python-version }} == "3.8"

@@ -6,6 +6,8 @@ name: Python package
 on:
   push:
     branches: [ master ]
+    tags:
+      - '5.*'
   pull_request:
     branches: [ master ]
 

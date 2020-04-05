@@ -42,7 +42,12 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event_name == 'push' && startsWith(github.event.ref, 'refs/tags')
     steps:
-      - name: build dist
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.8
+      - uses: actions/checkout@v2
+      - name: build sdist
         run: |
           pip install -r requirements.txt
           python setup.py sdist

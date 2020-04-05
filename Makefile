@@ -15,8 +15,8 @@ dist: sdist
 sdist: clean
 	@python setup.py sdist
 
-deploy: clean test sdist
-	twine upload -r csirtg dist/cifsdk-*.tar.gz
+deploy: clean sdist
+	twine upload dist/cifsdk-5*.tar.gz
 
 clean:
 	rm -rf `find . | grep \.pyc`

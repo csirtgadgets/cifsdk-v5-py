@@ -48,6 +48,8 @@ jobs:
         with:
           python-version: 3.8
       - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
       - name: build sdist
         run: |
           sudo apt-get install libsnappy-dev

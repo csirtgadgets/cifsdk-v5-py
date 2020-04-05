@@ -35,7 +35,7 @@ jobs:
     - name: Test with pytest
       run: |
         make test
-        python setup.py sdist bdist
+        python setup.py sdist
         rm dist/*
   
   deploy:
@@ -52,7 +52,7 @@ jobs:
         run: |
           sudo apt-get install libsnappy-dev
           pip install -r requirements.txt
-          python setup.py sdist bdist_wheel
+          python setup.py sdist
       
       - name: Publish distribution 📦 to PyPI
         uses: pypa/gh-action-pypi-publish@master

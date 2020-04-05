@@ -56,6 +56,7 @@ jobs:
           TWINE_PASSWORD: ${{ secrets.pypi_token }}
         run: |
           sudo apt-get install libsnappy-dev
-          pip install -r dev_requirements.txt
+          pip install -r requirements.txt
+          pip install twine
           python setup.py sdist
           twine upload dist/cifsdk*.tar.gz

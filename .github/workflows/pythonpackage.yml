@@ -52,7 +52,7 @@ jobs:
         run: |
           sudo apt-get install libsnappy-dev
           pip install -r requirements.txt
-          python setup.py sdist bdist
+          python setup.py sdist bdist_wheel
       
       - name: Publish distribution 📦 to PyPI
         uses: pypa/gh-action-pypi-publish@master

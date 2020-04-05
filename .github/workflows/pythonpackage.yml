@@ -36,13 +36,14 @@ jobs:
       run: |
         make test
         python setup.py sdist bdist
+        rm dist/*
   
   deploy:
     needs: build
     runs-on: ubuntu-latest
     if: github.event_name == 'push' && startsWith(github.event.ref, 'refs/tags')
     steps:
-      - name: Set up Python ${{ matrix.python-version }}
+      - name: Set up Python 3.8
         uses: actions/setup-python@v1
         with:
           python-version: 3.8
@@ -51,7 +52,7 @@ jobs:
         run: |
           sudo apt-get install libsnappy-dev
           pip install -r requirements.txt
-          python setup.py sdist
+          python setup.py sdist bdist
       
       - name: Publish distribution 📦 to PyPI
         uses: pypa/gh-action-pypi-publish@master

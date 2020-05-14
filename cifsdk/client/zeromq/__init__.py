@@ -36,13 +36,16 @@ class ZMQ(Client, Base):
 
         return data
 
-    def indicators_create(self, data=[], nowait=False, fireball=False,
+    def indicators_create(self, data=[], nowait=False, fireball=None,
                           f_size=FIREBALL_SIZE):
 
         if isinstance(data, list) and len(data) == 0:
             return
 
         data = self._prepare_data(data)
+
+        if fireball is False:
+            return self._send(Msg.INDICATORS_CREATE, data, nowait=nowait)
 
         if fireball or self._should_fireball(data):
             return self._send_fireball(data, f_size)

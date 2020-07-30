@@ -153,7 +153,6 @@ class Base(object):
             raise TypeError('invalid search')
 
         if data.get('status') != 'success':
-            self.loop.stop()
             raise RuntimeError(data.get('message'))
 
         if data.get('data') is None:

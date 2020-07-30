@@ -138,8 +138,11 @@ class Base(object):
         self.socket.close()
         return self.response
 
-    @staticmethod
-    def _check_recv(data):
+    def _check_recv(self, data):
+        if data.get('message') != 'success':
+            if self.loop:
+                self.loop.stop()
+
         if data.get('message') == 'unauthorized':
             raise PermissionError
 
@@ -150,6 +153,7 @@ class Base(object):
             raise TypeError('invalid search')
 
         if data.get('status') != 'success':
+            self.loop.stop()
             raise RuntimeError(data.get('message'))
 
         if data.get('data') is None:

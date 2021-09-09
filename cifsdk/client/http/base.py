@@ -41,10 +41,13 @@ class Base(object):
         self.verify_ssl = kwargs.get('verify_ssl', True)
         self.nowait = kwargs.get('nowait', False)
         self.timeout = timeout
+        self.cert = kwargs.get('cert', None) and kwargs.get('cert', None).name
+        self.key = kwargs.get('key', None) and kwargs.get('key', None).name
 
         self.remote = kwargs.get('remote', REMOTE)
 
         self.session = requests.Session()
+        self.session.cert=((self.cert,self.key))
         self.session.headers["Accept"] = 'application/vnd.cif.v5+json'
         self.session.headers['User-Agent'] = 'cifsdk-py/{}'.format(VERSION)
         self.session.headers['Accept-Encoding'] = 'deflate'

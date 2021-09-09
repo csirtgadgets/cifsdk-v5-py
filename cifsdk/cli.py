@@ -180,7 +180,7 @@ def main():  # pragma: no cover
         if args.remote == 'https://localhost':
             verify_ssl = False
 
-        cli = Client(verify_ssl=verify_ssl)
+        cli = Client(remote=args.remote, verify_ssl=verify_ssl)
 
     else:
         from cifsdk.client.zeromq import ZMQ

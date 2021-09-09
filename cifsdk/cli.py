@@ -5,6 +5,7 @@ import sys
 import textwrap
 from argparse import ArgumentParser
 from argparse import RawDescriptionHelpFormatter
+from argparse import FileType
 
 from csirtg_indicator.format import FORMATS
 from cifsdk.utils import setup_logging, get_argument_parser
@@ -119,6 +120,8 @@ def main():  # pragma: no cover
     p.add_argument('--remote', help='specify API remote [default %(default)s]',
                    default=REMOTE)
     p.add_argument('--no-verify-ssl', action='store_true')
+    p.add_argument('--cert', type=FileType('r'), help="client tls certificate file")
+    p.add_argument('--key', type=FileType('r'), help="client tls key file")
 
     p.add_argument("--create", action="store_true", help="create an indicator")
     p.add_argument('--delete', action='store_true')
@@ -180,7 +183,7 @@ def main():  # pragma: no cover
         if args.remote == 'https://localhost':
             verify_ssl = False
 
-        cli = Client(remote=args.remote, verify_ssl=verify_ssl)
+        cli = Client(verify_ssl=verify_ssl, key=args.key, cert=args.cert)
 
     else:
         from cifsdk.client.zeromq import ZMQ
